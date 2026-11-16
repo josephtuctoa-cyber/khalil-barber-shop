@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Khalil Barber Shop | Puente Piedra • Estilo & Precisión</title>
+    <meta name="description"
+        content="Khalil Barber Shop en Puente Piedra, Lima. Cortes degradados, corte clásico, pigmentación de barba y cejas. Referencia: Campo Deportivo Bellavista / Grass Sintético Quispe.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        barber: {
+                            black: '#090909',
+                            dark: '#111111',
+                            card: '#161616',
+                            cardHover: '#1f1f1f',
+                            gold: '#d4af37',
+                            goldDark: '#b88f1e',
+                            goldLight: '#f3d066',
+                            text: '#f3f3f3',
+                            muted: '#9a9a9a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                        oswald: ['Oswald', 'sans-serif'],
+                        cinzel: ['Cinzel', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #090909;
+            color: #f3f3f3;
+            overflow-x: hidden;
+        }
+
+        .gold-border-glow {
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.9), 0 0 15px rgba(212, 175, 55, 0.05);
+        }
+
+        .gold-border-glow:hover {
+            border-color: rgba(212, 175, 55, 0.65);
+            box-shadow: 0 14px 35px -8px rgba(0, 0, 0, 0.95), 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .menu-dots {
+            flex-grow: 1;
+            border-bottom: 2px dotted rgba(212, 175, 55, 0.3);
+            margin: 0 12px;
+            position: relative;
+            top: -5px;
+        }
+
+        .vip-mosaic {
+            background-image:
+                linear-gradient(45deg, rgba(212, 175, 55, 0.2) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(212, 175, 55, 0.2) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(212, 175, 55, 0.2) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(212, 175, 55, 0.2) 75%);
+            background-size: 12px 12px;
+            background-position: 0 0, 0 6px, 6px -6px, -6px 0;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #090909;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #252525;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+
+        @keyframes marquee-scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee-scroll 26s linear infinite;
+        }
+
+        .marquee-container:hover .animate-marquee-track {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased pb-20 lg:pb-0">
+
+    <!-- ==================== HEADER / NAVEGACIÓN ==================== -->
+    <header id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-barber-black/95 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 gap-4">
+                <!-- Logo Minimalista Blanco y Dorado a la Izquierda -->
+                <a href="#inicio" class="flex items-center gap-3 group shrink-0" aria-label="Khalil Barber Shop - Inicio">
+                    <div
+                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-lg border border-barber-gold/60 bg-black flex items-center justify-center p-1 overflow-hidden group-hover:border-barber-gold transition-all duration-300 shadow-md shrink-0">
+                        <img src="img/logo.png" alt="Logo Khalil Barber Shop" class="w-full h-full object-contain">
+                    </div>
+                    <div class="flex flex-col">
+                        <span
+                            class="font-heading font-black text-sm sm:text-base tracking-widest text-white uppercase leading-none group-hover:text-barber-gold transition-colors duration-300 whitespace-nowrap">
+                            KHALIL <span class="text-barber-gold">BARBER SHOP</span>
+                        </span>
+                        <span
+                            class="text-[10px] tracking-[0.25em] text-barber-muted mt-1 uppercase font-semibold whitespace-nowrap">Puente
+                            Piedra</span>
+                    </div>
+                </a>
+
+                <!-- Navegación Central con 5 enlaces sincronizados -->
+                <nav
+                    class="hidden lg:flex items-center justify-center gap-7 whitespace-nowrap text-xs font-semibold tracking-wider uppercase text-white/90 font-heading">
+                    <a href="#local"
+                        class="hover:text-barber-gold transition-colors duration-300">NUESTRO LOCAL</a>
+                    <a href="#servicios"
+                        class="hover:text-barber-gold transition-colors duration-300">SERVICIOS</a>
+                    <a href="#cortes-reales"
+                        class="hover:text-barber-gold transition-colors duration-300">CORTES REALES</a>
+                    <a href="#tarjeta-vip"
+                        class="hover:text-barber-gold transition-colors duration-300">TARJETA VIP</a>
+                    <a href="#ubicacion"
+                        class="hover:text-barber-gold transition-colors duration-300">UBICACIÓN</a>
+                </nav>
+
+                <!-- Botón Dorado Compacto RESERVAR + Menú Móvil Funcional a la Derecha -->
+                <div class="flex items-center gap-3 shrink-0">
+                    <button type="button" onclick="openBookingModal()"
+                        class="hidden sm:inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-full bg-barber-gold hover:bg-barber-goldLight text-barber-black font-heading font-bold uppercase tracking-wider text-xs shadow-md shadow-barber-gold/20 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer active:scale-95 whitespace-nowrap">
+                        <span>RESERVAR</span>
+                        <span class="text-xs">↗</span>
+                    </button>
+
+                    <button id="mobile-menu-btn" type="button" aria-label="Abrir menú"
+                        class="lg:hidden p-2.5 rounded-lg bg-barber-card border border-white/10 text-white hover:text-barber-gold hover:border-barber-gold/40 transition-all duration-300 cursor-pointer flex items-center justify-center">
+                        <i class="fa-solid fa-bars text-lg transition-transform duration-300" id="mobile-menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-barber-dark/98 backdrop-blur-md border-b border-white/10 px-4 pt-3 pb-6 space-y-2 font-heading transition-all duration-300">
+            <a href="#local"
+                class="mobile-link block px-4 py-3 rounded-lg text-xs font-semibold uppercase tracking-wider text-white/90 hover:bg-barber-card hover:text-barber-gold transition-all duration-300">NUESTRO LOCAL</a>
+            <a href="#servicios"
+                class="mobile-link block px-4 py-3 rounded-lg text-xs font-semibold uppercase tracking-wider text-white/90 hover:bg-barber-card hover:text-barber-gold transition-all duration-300">SERVICIOS</a>
+            <a href="#cortes-reales"
+                class="mobile-link block px-4 py-3 rounded-lg text-xs font-semibold uppercase tracking-wider text-white/90 hover:bg-barber-card hover:text-barber-gold transition-all duration-300">CORTES REALES</a>
+            <a href="#tarjeta-vip"
+                class="mobile-link block px-4 py-3 rounded-lg text-xs font-semibold uppercase tracking-wider text-white/90 hover:bg-barber-card hover:text-barber-gold transition-all duration-300">TARJETA VIP</a>
+            <a href="#ubicacion"
+                class="mobile-link block px-4 py-3 rounded-lg text-xs font-semibold uppercase tracking-wider text-white/90 hover:bg-barber-card hover:text-barber-gold transition-all duration-300">UBICACIÓN</a>
+            <div class="pt-2">
+                <button type="button" onclick="openBookingModal()"
+                    class="w-full py-3.5 rounded-full bg-barber-gold hover:bg-barber-goldLight text-barber-black font-heading font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-md transition-all duration-300 cursor-pointer active:scale-95">
+                    <span>RESERVAR</span>
+                    <span>↗</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION CON LOGO OFICIAL Y FOTO REAL DEL LOCAL ==================== -->
+    <section id="inicio" class="relative min-h-screen flex flex-col justify-between pt-24 pb-12 overflow-hidden">
+        <!-- Foto real del local como fondo -->
+        <div class="absolute inset-0 z-0">
+            <img src="img/locall.webp" alt="Interior real de Khalil Barber Shop Puente Piedra"
+                class="w-full h-full object-cover object-center scale-105 opacity-45">
+            <div class="absolute inset-0 bg-gradient-to-t from-barber-black via-barber-black/85 to-barber-black/70">
+            </div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-7">
+                    <!-- Badge superior -->
+                    <div
+                        class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-barber-card/90 border border-barber-gold/40 text-barber-gold text-[11px] font-heading font-bold uppercase tracking-[0.25em] mb-6">
+                        <span>📍 PUENTE PIEDRA • LIMA</span>
+                    </div>
+
+                    <!-- Titulares principales -->
+                    <h1
+                        class="font-heading font-black text-4xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-white leading-[0.95] mb-6">
+                        CALIDAD ÚNICA. <br>
+                        <span class="text-barber-gold">ESTILO Y PRECISIÓN.</span>
+                    </h1>
+
+                    <p class="max-w-xl text-sm sm:text-base text-barber-muted font-normal leading-relaxed mb-8">
+                        Especialistas en cortes degradados, diseños a navaja, corte clásico, ondulaciones, pigmentación
+                        de barba y cejas. El estándar profesional que mereces en Puente Piedra.
+                    </p>
+
+                    <!-- Botones de Acción Hero -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <button type="button" onclick="openBookingModal()"
+                            class="h-12 px-7 rounded-full bg-barber-gold hover:bg-barber-goldLight text-barber-black font-heading font-bold uppercase tracking-wider text-xs sm:text-sm shadow-lg shadow-barber-gold/20 hover:-translate-y-0.5 transition-all duration-300 inline-flex items-center justify-center gap-2 cursor-pointer active:scale-95 whitespace-nowrap">
+                            <span>RESERVAR AHORA</span>
+                            <span class="text-base leading-none">↗</span>
+                        </button>
+                        <a href="https://wa.me/51936403769?text=Hola%20Khalil%20Barber%20Shop,%20quisiera%20reservar%20una%20cita."
+                            target="_blank" rel="noopener noreferrer"
+                            class="h-12 px-7 rounded-full bg-white/5 hover:bg-green-500/10 text-white hover:text-green-400 border border-white/15 hover:border-green-500/60 backdrop-blur-sm font-heading font-semibold uppercase tracking-wider text-xs sm:text-sm hover:-translate-y-0.5 transition-all duration-300 inline-flex items-center justify-center gap-2.5 cursor-pointer shadow-sm whitespace-nowrap">
+                            <i class="fa-brands fa-whatsapp text-green-400 text-lg shrink-0"></i>
+                            <span>WHATSAPP (+51 936 403 769)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Logo Oficial SVG (Sin fecha) -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-sm bg-black/80 backdrop-blur-md p-6 rounded-3xl gold-border-glow">
+                        <img src="img/logo.png" alt="logo" />
+                        <p
+                            class="text-center text-white/90 font-heading font-semibold text-base sm:text-lg tracking-[0.2em] uppercase mt-4">
+                            Puente Piedra</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrusel Infinito de Accesos Rápidos (Marquee estilo Barber House) -->
+        <div
+            class="relative z-10 w-full max-w-full mt-12 border-t border-b border-white/10 bg-barber-black/80 backdrop-blur-sm overflow-hidden marquee-container select-none">
+            <!-- Difuminado en bordes para evitar cortes secos de letras -->
+            <div class="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-barber-black to-transparent z-10"></div>
+            <div class="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-barber-black to-transparent z-10"></div>
+
+            <div
+                class="animate-marquee-track py-4 sm:py-5 text-xs sm:text-sm font-heading font-bold uppercase tracking-[0.22em] text-barber-text whitespace-nowrap">
+                <!-- Bloque 1 -->
+                <div class="flex items-center gap-10 pr-10 shrink-0">
+                    <a href="#local" class="hover:text-barber-gold transition-colors duration-300 cursor-pointer">NUESTRO LOCAL</a>
+                    <span class="text-barber-gold">•</span>
+                    <a href="#servicios" class="hover:text-barber-gold transition-colors duration-300 cursor-pointer">SERVICIOS &amp; PRECIOS</a>
+                    <span class="text-barber-gold">•</span>
+                    <a href="#cortes-reales" class="hover:text-barber-gold transition-colors duration-300 cursor-pointer">CORTES REALES</a>
+                    <span class="text-barber-gold">•</span>
+                    <a href="#tarjeta-vip" class="hover:text-barber-gold transition-colors duration-300 cursor-pointer">TARJETA VIP</a>
+                    <span class="text-barber-gold">•</span>
+                    <a href="#ubicacion" class="hover:text-barber-gold transition-colors duration-300 cursor-pointer">CAMPO DEPORTIVO BELLAVISTA</a>
+                    <span class="text-barber-gold">•</span>
+                    <a href="#reservar" onclick="openBookingModal(); return false;"
+                        class="uppercase hover:text-barber-gold transition-colors duration-300 cursor-pointer">RESERVA ONLINE</a>
+                    <span class="text-barber-gold">•</span>
+                </div>
+                <!-- Bloque 2 (Duplicado exacto para desplazamiento continuo sin cortes) -->
+                <div class="flex items-center gap-10 pr-10 shrink-0" aria-hidden="true">
+                    <a href="#local" class="hover:text-barber-gold transition-colors duration-300 cursor-pointer">NUESTRO LOCAL</a>
+                    <span class="text-barber-gold">•</span>
+                    <a href="#servicios" class="hover:text-barber-gold transition-colors duration-300 cursor-pointer">SERVICIOS &amp; PRECIOS</a>
+                    <span class="text-barber-gold">•</span>
+                    <a href="#cortes-reales" class="hover:text-barber-gold transition-colors duration-300 cursor-pointer">CORTES REALES</a>
+                    <span class="text-barber-gold">•</span>
+                    <a href="#tarjeta-vip" class="hover:text-barber-gold transition-colors duration-300 cursor-pointer">TARJETA VIP</a>
+                    <span class="text-barber-gold">•</span>
+                    <a href="#ubicacion" class="hover:text-barber-gold transition-colors duration-300 cursor-pointer">CAMPO DEPORTIVO BELLAVISTA</a>
+                    <span class="text-barber-gold">•</span>
+                    <a href="#reservar" onclick="openBookingModal(); return false;"
+                        class="uppercase hover:text-barber-gold transition-colors duration-300 cursor-pointer">RESERVA ONLINE</a>
+                    <span class="text-barber-gold">•</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN NUESTRO LOCAL (FOTOS REALES DE LA BARBERÍA) ==================== -->
+    <section id="local" class="py-24 bg-barber-dark border-t border-white/10 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+                <div>
+                    <span
+                        class="text-barber-gold font-heading font-bold uppercase tracking-[0.3em] text-xs">Instalaciones
+                        Oficiales</span>
+                    <h2 class="font-heading font-black text-3xl sm:text-5xl text-white uppercase tracking-tight mt-2">
+                        Conoce <span class="text-barber-gold">Nuestro Local</span>
+                    </h2>
+                    <p class="text-barber-muted text-sm sm:text-base mt-2 max-w-2xl">
+                        Un espacio moderno, cómodo y equipado con sillones hidráulicos, zona de lavado capilar e
+                        iluminación dedicada para cada detalle.
+                    </p>
+                </div>
+                <a href="#ubicacion"
+                    class="px-6 py-3 rounded-full bg-barber-card hover:bg-barber-cardHover border border-barber-gold/40 hover:border-barber-gold text-barber-gold hover:text-white text-xs font-heading font-bold uppercase tracking-wider inline-flex items-center gap-2 self-start md:self-auto transition-all duration-300 cursor-pointer">
+                    <i class="fa-solid fa-location-dot"></i> Ver en Mapa ↗
+                </a>
+            </div>
+
+            <!-- Grid de 3 Fotos Reales del Local -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="group relative rounded-2xl overflow-hidden bg-barber-card gold-border-glow aspect-[3/4]">
+                    <img src="img/locall.webp" alt="Estación de corte y zona de lavado Khalil Barber Shop"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <span
+                            class="text-[10px] font-heading font-bold uppercase tracking-widest text-barber-gold">Puente
+                            Piedra</span>
+                        <h3 class="font-heading font-bold text-white text-lg uppercase mt-0.5">Estación Principal &
+                            Lavacabezas</h3>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-2xl overflow-hidden bg-barber-card gold-border-glow aspect-[3/4]">
+                    <img src="img/local 1.webp" alt="Sillón profesional y espejo iluminado Khalil Barber Shop"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <span
+                            class="text-[10px] font-heading font-bold uppercase tracking-widest text-barber-gold">Confort
+                            & Higiene</span>
+                        <h3 class="font-heading font-bold text-white text-lg uppercase mt-0.5">Equipamiento Profesional
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-2xl overflow-hidden bg-barber-card gold-border-glow aspect-[3/4]">
+                    <img src="img/local.webp" alt="Ambiente interior de Khalil Barber Shop"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <span
+                            class="text-[10px] font-heading font-bold uppercase tracking-widest text-barber-gold">Estilo
+                            Moderno</span>
+                        <h3 class="font-heading font-bold text-white text-lg uppercase mt-0.5">Ambiente Exclusivo</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CATÁLOGO DE SERVICIOS Y PRECIOS ==================== -->
+    <section id="servicios" class="py-24 bg-barber-black relative border-t border-white/10 scroll-mt-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-14">
+                <span class="text-barber-gold font-heading font-bold uppercase tracking-[0.3em] text-xs">Carta
+                    Oficial</span>
+                <h2 class="font-heading font-black text-3xl sm:text-5xl text-white uppercase tracking-tight mt-2">
+                    Servicios & <span class="text-barber-gold">Tarifas</span>
+                </h2>
+                <p class="text-barber-muted text-sm sm:text-base mt-2">
+                    Elige tu servicio favorito y agenda tu cita al instante al WhatsApp oficial <strong
+                        class="text-white">+51 936 403 769</strong>.
+                </p>
+            </div>
+
+            <!-- Grilla Editorial Minimalista de Servicios (2 columnas sin caja exterior ni puntos) -->
+            <div id="services-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-6"></div>
+        </div>
+    </section>
+
+    <!-- ==================== GALERÍA DE CORTES REALES Y REDES SOCIALES ==================== -->
+    <section id="cortes-reales" class="py-24 bg-barber-dark border-t border-white/10 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+                <div>
+                    <span class="text-barber-gold font-heading font-bold uppercase tracking-[0.3em] text-xs">Portafolio
+                        Real</span>
+                    <h2 class="font-heading font-black text-3xl sm:text-5xl text-white uppercase tracking-tight mt-2">
+                        Nuestros <span class="text-barber-gold">Cortes & Trabajos</span>
+                    </h2>
+                </div>
+                <!-- Enlaces directos TikTok e Instagram -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <a href="https://www.tiktok.com/@khalil_zaid213" target="_blank" rel="noopener"
+                        class="px-5 py-3 rounded-full bg-barber-card hover:bg-barber-cardHover border border-white/15 hover:border-barber-gold/40 text-white text-xs font-heading font-bold uppercase tracking-wider flex items-center gap-2 transition-all duration-300 cursor-pointer">
+                        <i class="fa-brands fa-tiktok text-barber-gold text-base"></i> TikTok @khalil_zaid213
+                    </a>
+                    <a href="https://www.instagram.com/khalil_barbershop/" target="_blank" rel="noopener"
+                        class="px-5 py-3 rounded-full bg-barber-card hover:bg-barber-cardHover border border-white/15 hover:border-barber-gold/40 text-white text-xs font-heading font-bold uppercase tracking-wider flex items-center gap-2 transition-all duration-300 cursor-pointer">
+                        <i class="fa-brands fa-instagram text-pink-400 text-base"></i> Instagram @khalil_barbershop
+                    </a>
+                </div>
+            </div>
+
+            <!-- Galería con las 4 Fotos Reales Subidas -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Corte 1: Atención en cabina -->
+                <div class="group relative rounded-2xl overflow-hidden bg-barber-card gold-border-glow aspect-[4/5]">
+                    <img src="img/perfilado.png" alt="Degradado limpio por Khalil Barber Shop"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/15 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <span
+                            class="text-[10px] font-heading font-bold uppercase tracking-widest text-barber-gold">Degradado
+                            • S/ 20</span>
+                        <h4 class="font-heading font-bold text-white text-lg mt-1 uppercase">Fade & Perfilado</h4>
+                        <p class="text-xs text-barber-muted mt-1">Acabado pulcro y contornos marcados.</p>
+                    </div>
+                </div>
+
+                <!-- Corte 2: Fade con líneas en nuca -->
+                <div class="group relative rounded-2xl overflow-hidden bg-barber-card gold-border-glow aspect-[4/5]">
+                    <img src="img/CORTE2.png" alt="Degradado con diseño de líneas en nuca"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/15 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <span
+                            class="text-[10px] font-heading font-bold uppercase tracking-widest text-barber-gold">Estilo
+                            Urbano • S/ 20</span>
+                        <h4 class="font-heading font-bold text-white text-lg mt-1 uppercase">Fade con Líneas</h4>
+                        <p class="text-xs text-barber-muted mt-1">Transición suave con detalles a navaja.</p>
+                    </div>
+                </div>
+
+                <!-- Corte 3: Diseño artístico lateral -->
+                <div class="group relative rounded-2xl overflow-hidden bg-barber-card gold-border-glow aspect-[4/5]">
+                    <img src="img/CORTES1.png" alt="Diseño artístico Freestyle en degradado"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/15 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <span
+                            class="text-[10px] font-heading font-bold uppercase tracking-widest text-barber-gold">Freestyle
+                            • S/ 20</span>
+                        <h4 class="font-heading font-bold text-white text-lg mt-1 uppercase">Diseño a Navaja</h4>
+                        <p class="text-xs text-barber-muted mt-1">Trazos definidos con precisión artística.</p>
+                    </div>
+                </div>
+
+                <!-- Corte 4: Proceso de corte en espejo -->
+                <div class="group relative rounded-2xl overflow-hidden bg-barber-card gold-border-glow aspect-[4/5]">
+                    <img src="img/CORTES.png" alt="Corte personalizado en Khalil Barber Shop"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/15 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <span
+                            class="text-[10px] font-heading font-bold uppercase tracking-widest text-barber-gold">Asesoría
+                            • S/ 15 - S/ 25</span>
+                        <h4 class="font-heading font-bold text-white text-lg mt-1 uppercase">Corte Personalizado</h4>
+                        <p class="text-xs text-barber-muted mt-1">Adaptado a la forma de tu rostro y estilo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TARJETA VIP DE FIDELIDAD INTERACTIVA ==================== -->
+    <section id="tarjeta-vip" class="py-24 bg-barber-black border-t border-white/10 scroll-mt-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-barber-gold font-heading font-bold uppercase tracking-[0.3em] text-xs">Fidelidad
+                        Exclusiva</span>
+                    <h2 class="font-heading font-black text-3xl sm:text-4xl text-white uppercase tracking-tight">
+                        Tarjeta VIP <span class="text-barber-gold block">Khalil Barber Shop</span>
+                    </h2>
+                    <p class="text-sm text-barber-muted leading-relaxed">
+                        Acumula sellos en cada visita y desbloquea descuentos del 50%, productos gratis y cortes de
+                        cortesía.
+                    </p>
+                    <div class="p-4 rounded-xl bg-barber-card border-l-4 border-barber-gold">
+                        <p class="text-xs font-heading font-bold uppercase tracking-wider text-white">
+                            💡 Toca los círculos para simular tus sellos acumulados.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3">
+                        <button type="button" onclick="resetVipCard()"
+                            class="px-4 py-2.5 rounded-lg bg-barber-card hover:bg-barber-cardHover text-xs uppercase tracking-wider font-heading font-semibold text-barber-muted hover:text-white border border-white/10 hover:border-barber-gold/40 transition-all duration-300 cursor-pointer">
+                            Reiniciar Sellos
+                        </button>
+                        <span id="vip-status-badge"
+                            class="px-4 py-2.5 rounded-lg bg-barber-gold/10 border border-barber-gold/30 text-xs font-heading font-bold text-barber-gold">
+                            1 / 12 Sellos marcados
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta VIP Interactiva -->
+                <div class="lg:col-span-7">
+                    <div
+                        class="rounded-2xl bg-barber-card p-6 sm:p-8 gold-border-glow relative overflow-hidden shadow-2xl">
+                        <div
+                            class="absolute top-0 right-0 bottom-0 w-10 sm:w-12 vip-mosaic opacity-70 border-l border-barber-gold/20">
+                        </div>
+
+                        <div class="relative z-10 flex items-center justify-between mb-6 pr-10 sm:pr-12">
+                            <div>
+                                <h3 class="font-heading font-black text-base text-barber-gold uppercase tracking-wider">
+                                    KHALIL VIP CARD</h3>
+                                <p class="text-[10px] font-mono tracking-widest text-barber-muted">PUENTE PIEDRA • LIMA
+                                </p>
+                            </div>
+                            <span
+                                class="text-[10px] font-heading font-bold uppercase px-2.5 py-1 rounded bg-barber-gold/15 text-barber-gold">
+                                Toca para sellar
+                            </span>
+                        </div>
+
+                        <div class="relative z-10 pr-10 sm:pr-12">
+                            <div id="vip-stamps-grid" class="grid grid-cols-3 gap-3 mb-6"></div>
+
+                            <div class="grid grid-cols-3 gap-2 sm:gap-3 pt-4 border-t border-white/10 text-center">
+                                <div id="reward-1" class="p-2 rounded-xl bg-barber-dark border border-barber-gold/30">
+                                    <span class="font-heading font-black text-barber-gold text-xs sm:text-sm block">50%
+                                        DSCTO</span>
+                                    <span class="text-[9px] text-barber-muted uppercase">4 sellos</span>
+                                </div>
+                                <div id="reward-2" class="p-2 rounded-xl bg-barber-dark border border-barber-gold/30">
+                                    <span
+                                        class="font-heading font-black text-barber-gold text-xs sm:text-sm block">PRODUCTO</span>
+                                    <span class="text-[9px] text-barber-muted uppercase">8 sellos</span>
+                                </div>
+                                <div id="reward-3" class="p-2 rounded-xl bg-barber-dark border border-barber-gold/30">
+                                    <span
+                                        class="font-heading font-black text-barber-gold text-xs sm:text-sm block">CORTE
+                                        GRATIS</span>
+                                    <span class="text-[9px] text-barber-muted uppercase">12 sellos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MAPA EN VIVO + UBICACIÓN (CAMPO DEPORTIVO BELLAVISTA) ==================== -->
+    <section id="ubicacion" class="py-24 bg-barber-dark border-t border-white/10 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-14">
+                <span class="text-barber-gold font-heading font-bold uppercase tracking-[0.3em] text-xs">Ubicación
+                    Satelital</span>
+                <h2 class="font-heading font-black text-3xl sm:text-5xl text-white uppercase tracking-tight mt-2">
+                    Ubicación & <span class="text-barber-gold">Cómo Llegar</span>
+                </h2>
+                <p class="text-barber-muted text-sm sm:text-base mt-2">
+                    Referencia exacta: <strong class="text-white">Campo Deportivo Bellavista (Grass Sintético
+                        Quispe)</strong>, Puente Piedra.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Guía en 3 pasos -->
+                <div
+                    class="lg:col-span-5 bg-barber-card rounded-2xl p-6 sm:p-8 gold-border-glow flex flex-col justify-between space-y-6">
+                    <div class="space-y-5">
+                        <div class="p-4 rounded-xl bg-barber-black border border-barber-gold/40">
+                            <span
+                                class="text-[10px] font-heading font-bold uppercase tracking-widest text-barber-gold block mb-1">Referencia
+                                Principal</span>
+                            <h3 class="text-white font-heading font-bold text-base">Campo Deportivo Bellavista (Grass
+                                Quispe)</h3>
+                            <p class="text-xs text-barber-muted mt-1">Puente Piedra, Lima</p>
+                        </div>
+
+                        <div class="space-y-4 font-heading text-xs uppercase tracking-wider">
+                            <div class="flex items-start gap-3">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-barber-gold text-barber-black font-bold flex items-center justify-center shrink-0">1</span>
+                                <p class="text-barber-text normal-case text-sm">Ubícate en el <strong
+                                        class="text-white">Campo Deportivo Bellavista</strong> (Grass Sintético Quispe).
+                                </p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-barber-gold text-barber-black font-bold flex items-center justify-center shrink-0">2</span>
+                                <p class="text-barber-text normal-case text-sm">Baja recto por la calle principal
+                                    pasando por Colloni.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-barber-gold text-barber-black font-bold flex items-center justify-center shrink-0">3</span>
+                                <p class="text-barber-text normal-case text-sm">Dobla en la esquina con <strong
+                                        class="text-barber-gold">Cam. Real</strong>: ¡ahí estamos!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 pt-4 border-t border-white/10">
+                        <a href="https://www.google.com/maps/place/Campo+Deportivo+Bellavista/@-11.8650262,-77.0872767,179m/data=!3m1!1e3!4m6!3m5!1s0x9105d14cca240769:0x5666ed58c5eb85ee!8m2!3d-11.8647784!4d-77.0868154!16s%2Fg%2F11cs6fcbpg?hl=es"
+                            target="_blank" rel="noopener"
+                            class="w-full py-3.5 rounded-full bg-barber-gold hover:bg-barber-goldLight text-barber-black font-heading font-bold uppercase tracking-wider text-xs text-center shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-pointer block">
+                            Abrir Ruta en Google Maps ↗
+                        </a>
+                        <a href="https://wa.me/51936403769?text=Hola,%20estoy%20en%20el%20Campo%20Deportivo%20Bellavista,%20%C2%BFme%20confirmas%20la%20ubicaci%C3%B3n?"
+                            target="_blank" rel="noopener noreferrer"
+                            class="w-full py-3.5 rounded-full bg-white/5 hover:bg-green-500/10 text-white hover:text-green-400 border border-white/15 hover:border-green-500/60 font-heading font-bold uppercase tracking-wider text-xs text-center hover:-translate-y-0.5 transition-all duration-300 cursor-pointer block">
+                            Pedir ubicación por WhatsApp (+51 936 403 769)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Iframe Google Maps en vivo -->
+                <div
+                    class="lg:col-span-7 bg-barber-card rounded-2xl p-4 sm:p-6 gold-border-glow flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="font-heading font-bold text-xs uppercase tracking-widest text-white">Mapa Satelital
+                            en Vivo</span>
+                        <div class="inline-flex rounded-lg bg-barber-black p-1 border border-white/10">
+                            <button type="button" onclick="switchGoogleMapView('k')" id="btn-sat"
+                                class="px-3 py-1 rounded text-[10px] font-heading font-bold uppercase bg-barber-gold text-barber-black transition-all duration-300 cursor-pointer">Satélite</button>
+                            <button type="button" onclick="switchGoogleMapView('m')" id="btn-map"
+                                class="px-3 py-1 rounded text-[10px] font-heading font-bold uppercase text-barber-muted hover:text-white transition-all duration-300 cursor-pointer">Mapa</button>
+                        </div>
+                    </div>
+
+                    <div class="relative w-full rounded-xl overflow-hidden border border-white/10 aspect-[16/11]">
+                        <iframe id="google-maps-iframe" title="Ubicación Khalil Barber Shop Puente Piedra"
+                            src="https://maps.google.com/maps?q=-11.8647784,-77.0868154&t=k&z=18&hl=es&output=embed"
+                            class="w-full h-full border-0" loading="lazy" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PREGUNTAS FRECUENTES (FAQ) ==================== -->
+    <section id="faq" class="py-24 bg-barber-black relative border-t border-white/10 scroll-mt-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-14 text-center sm:text-left">
+                <span class="text-barber-gold font-heading font-bold uppercase tracking-[0.3em] text-xs">Atención &amp; Respuestas</span>
+                <h2 class="font-heading font-black text-3xl sm:text-5xl text-white uppercase tracking-tight mt-2">
+                    LO QUE NOS <span class="text-barber-gold">PREGUNTAN.</span>
+                </h2>
+                <p class="text-barber-muted text-sm sm:text-base mt-2 max-w-xl">
+                    Información clara y directa sobre reservas, tarifas y atención personalizada en Puente Piedra.
+                </p>
+            </div>
+
+            <!-- Lista Editorial Minimalista de FAQ -->
+            <div class="space-y-0 divide-y divide-white/10 border-t border-b border-white/10">
+                
+                <details class="group py-6 cursor-pointer" open>
+                    <summary class="flex items-center justify-between list-none text-white font-heading font-bold text-base sm:text-lg uppercase tracking-wide group-hover:text-barber-gold transition-colors">
+                        <span>¿CÓMO RESERVO UNA CITA?</span>
+                        <span class="w-8 h-8 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-barber-gold group-open:rotate-45 group-hover:border-barber-gold transition-all duration-300 shrink-0 ml-4">
+                            <i class="fa-solid fa-plus text-xs"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-barber-muted text-sm sm:text-base leading-relaxed pr-6 font-normal">
+                        Escríbenos directamente por WhatsApp al <a href="https://wa.me/51936403769" target="_blank" rel="noopener noreferrer" class="text-barber-gold font-semibold underline hover:text-white transition-colors">+51 936 403 769</a> o usa nuestro <button type="button" onclick="openChatbot()" class="text-barber-gold font-semibold underline hover:text-white transition-colors cursor-pointer">Asistente Virtual</button> en la esquina inferior derecha para elegir tu servicio, día y hora con atención personalizada.
+                    </p>
+                </details>
+
+                <details class="group py-6 cursor-pointer">
+                    <summary class="flex items-center justify-between list-none text-white font-heading font-bold text-base sm:text-lg uppercase tracking-wide group-hover:text-barber-gold transition-colors">
+                        <span>¿CUÁNTO CUESTA UN CORTE?</span>
+                        <span class="w-8 h-8 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-barber-gold group-open:rotate-45 group-hover:border-barber-gold transition-all duration-300 shrink-0 ml-4">
+                            <i class="fa-solid fa-plus text-xs"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-barber-muted text-sm sm:text-base leading-relaxed pr-6 font-normal">
+                        Nuestro servicio más pedido, <strong class="text-white">Corte Degradado</strong>, cuesta S/ 20 y el <strong class="text-white">Corte Clásico</strong> S/ 15. Contamos con combos desde S/ 20 y servicios especializados como <strong class="text-white">Ondulaciones + Corte</strong> a S/ 80.
+                    </p>
+                </details>
+
+                <details class="group py-6 cursor-pointer">
+                    <summary class="flex items-center justify-between list-none text-white font-heading font-bold text-base sm:text-lg uppercase tracking-wide group-hover:text-barber-gold transition-colors">
+                        <span>¿DÓNDE ESTÁ UBICADA LA BARBERÍA?</span>
+                        <span class="w-8 h-8 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-barber-gold group-open:rotate-45 group-hover:border-barber-gold transition-all duration-300 shrink-0 ml-4">
+                            <i class="fa-solid fa-plus text-xs"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-barber-muted text-sm sm:text-base leading-relaxed pr-6 font-normal">
+                        Estamos en <strong class="text-white">Puente Piedra, Lima</strong> (Referencia: Campo Deportivo Bellavista / Grass Quispe, cruce con Cam. Real). Puedes ver la ruta exacta en la sección de <a href="#ubicacion" class="text-barber-gold font-semibold underline hover:text-white transition-colors">Ubicación</a> o abrir Google Maps.
+                    </p>
+                </details>
+
+                <details class="group py-6 cursor-pointer">
+                    <summary class="flex items-center justify-between list-none text-white font-heading font-bold text-base sm:text-lg uppercase tracking-wide group-hover:text-barber-gold transition-colors">
+                        <span>¿CONVIENE RESERVAR CON ANTICIPACIÓN?</span>
+                        <span class="w-8 h-8 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-barber-gold group-open:rotate-45 group-hover:border-barber-gold transition-all duration-300 shrink-0 ml-4">
+                            <i class="fa-solid fa-plus text-xs"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-barber-muted text-sm sm:text-base leading-relaxed pr-6 font-normal">
+                        Sí. Al brindar atención personalizada directa por nuestro barbero especialista, te recomendamos agendar tu turno con anticipación por el chatbot o WhatsApp para evitar esperas.
+                    </p>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER (5 COLUMNAS CON LOGO REAL) ==================== -->
+    <footer class="bg-barber-black border-t border-white/10 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+                
+                <!-- Columna 1: Marca & Logo Oficial -->
+                <div class="space-y-4">
+                    <a href="#inicio" class="inline-block group" aria-label="Khalil Barber Shop - Inicio">
+                        <img src="img/logo.png" alt="Khalil Barber Shop Puente Piedra" class="h-16 w-auto object-contain mb-3 group-hover:scale-105 transition-transform duration-300">
+                        <span class="font-heading font-black text-base tracking-widest text-white uppercase block leading-none">
+                            KHALIL <span class="text-barber-gold">BARBER SHOP</span>
+                        </span>
+                        <span class="text-[10px] tracking-[0.25em] text-barber-muted uppercase font-semibold mt-1 block">
+                            PUENTE PIEDRA • LIMA
+                        </span>
+                    </a>
+                    <p class="text-xs text-barber-muted leading-relaxed">
+                        Estilo, degradados de alta precisión y cuidado profesional. La barbería de confianza en Puente Piedra.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Navegación -->
+                <div>
+                    <h4 class="font-heading font-bold text-xs uppercase tracking-[0.25em] text-barber-gold mb-4">Navegación</h4>
+                    <ul class="space-y-2.5 text-xs font-heading font-semibold uppercase tracking-wider text-barber-muted">
+                        <li><a href="#local" class="hover:text-barber-gold transition-colors duration-300">Nuestro Local</a></li>
+                        <li><a href="#servicios" class="hover:text-barber-gold transition-colors duration-300">Servicios</a></li>
+                        <li><a href="#cortes-reales" class="hover:text-barber-gold transition-colors duration-300">Cortes Reales</a></li>
+                        <li><a href="#tarjeta-vip" class="hover:text-barber-gold transition-colors duration-300">Tarjeta VIP</a></li>
+                        <li><a href="#faq" class="hover:text-barber-gold transition-colors duration-300">Preguntas</a></li>
+                        <li><a href="#ubicacion" class="hover:text-barber-gold transition-colors duration-300">Ubicación</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Sede Puente Piedra -->
+                <div>
+                    <h4 class="font-heading font-bold text-xs uppercase tracking-[0.25em] text-barber-gold mb-4">Sede Puente Piedra</h4>
+                    <div class="space-y-3 text-xs text-barber-muted leading-relaxed">
+                        <p class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot text-barber-gold mt-0.5 shrink-0"></i>
+                            <span>Ref: Campo Deportivo Bellavista / Grass Quispe, cruce con Cam. Real — Puente Piedra, Lima.</span>
+                        </p>
+                        <a href="#ubicacion" class="inline-flex items-center gap-1.5 text-barber-gold hover:text-white font-heading font-bold uppercase tracking-wider text-[11px] transition-colors duration-300 mt-2">
+                            <span>Ver en Google Maps</span>
+                            <span>↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 4: Síguenos -->
+                <div>
+                    <h4 class="font-heading font-bold text-xs uppercase tracking-[0.25em] text-barber-gold mb-4">Síguenos</h4>
+                    <ul class="space-y-3 text-xs font-heading font-semibold uppercase tracking-wider text-barber-muted">
+                        <li>
+                            <a href="https://www.instagram.com/khalil_barbershop/" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 transition-colors duration-300 flex items-center gap-2.5">
+                                <i class="fa-brands fa-instagram text-pink-400 text-base"></i>
+                                <span>Instagram (@khalil_barbershop)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.tiktok.com/@khalil_zaid213" target="_blank" rel="noopener noreferrer" class="hover:text-barber-gold transition-colors duration-300 flex items-center gap-2.5">
+                                <i class="fa-brands fa-tiktok text-barber-gold text-base"></i>
+                                <span>TikTok (@khalil_zaid213)</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 5: Reservaciones -->
+                <div>
+                    <h4 class="font-heading font-bold text-xs uppercase tracking-[0.25em] text-barber-gold mb-4">Reservaciones</h4>
+                    <ul class="space-y-2.5 text-xs text-barber-muted">
+                        <li>
+                            <a href="https://wa.me/51936403769" target="_blank" rel="noopener noreferrer" class="font-bold text-white hover:text-barber-gold transition-colors duration-300 flex items-center gap-2">
+                                <i class="fa-solid fa-phone text-barber-gold text-xs"></i>
+                                <span>+51 936 403 769</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/51936403769?text=Hola%20Khalil%20Barber%20Shop,%20quisiera%20reservar%20una%20cita." target="_blank" rel="noopener noreferrer" class="hover:text-green-400 transition-colors duration-300 flex items-center gap-2 font-heading uppercase tracking-wider text-[11px]">
+                                <i class="fa-brands fa-whatsapp text-green-400 text-sm"></i>
+                                <span>WhatsApp Directo</span>
+                            </a>
+                        </li>
+                        <li>
+                            <button type="button" onclick="openChatbot()" class="hover:text-barber-gold transition-colors duration-300 flex items-center gap-2 font-heading uppercase tracking-wider text-[11px] cursor-pointer text-left">
+                                <i class="fa-solid fa-comments text-barber-gold text-xs"></i>
+                                <span>Chatear con Asistente</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" onclick="openBookingModal()" class="hover:text-barber-gold transition-colors duration-300 flex items-center gap-2 font-heading uppercase tracking-wider text-[11px] cursor-pointer text-left">
+                                <i class="fa-solid fa-calendar-check text-barber-gold text-xs"></i>
+                                <span>Agendar Cita Online</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Barra Inferior de Derechos Reservados -->
+            <div class="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-barber-muted">
+                <p>&copy; 2026 Khalil Barber Shop — Puente Piedra, Lima. Todos los derechos reservados.</p>
+                <a href="https://www.instagram.com/khalil_barbershop/" target="_blank" rel="noopener noreferrer" class="font-heading font-semibold text-white/80 hover:text-barber-gold transition-colors duration-300">
+                    @khalil_barbershop
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== BARRA MÓVIL INFERIOR ==================== -->
+    <div
+        class="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-barber-black/95 backdrop-blur-md border-t border-white/10 grid grid-cols-3 divide-x divide-white/10">
+        <a href="tel:+51936403769"
+            class="py-3 flex flex-col items-center justify-center text-white hover:text-barber-gold transition-colors duration-300 cursor-pointer">
+            <i class="fa-solid fa-phone text-barber-gold text-sm mb-0.5"></i>
+            <span class="text-[10px] font-heading font-bold uppercase tracking-wider">Llamar</span>
+        </a>
+        <a href="https://wa.me/51936403769?text=Hola%20Khalil%20Barber%20Shop,%20quisiera%20reservar%20una%20cita."
+            target="_blank" rel="noopener noreferrer"
+            class="py-3 flex flex-col items-center justify-center bg-barber-gold/15 text-barber-gold font-bold hover:bg-barber-gold/25 transition-all duration-300 cursor-pointer">
+            <i class="fa-brands fa-whatsapp text-green-400 text-base mb-0.5"></i>
+            <span class="text-[10px] font-heading font-bold uppercase tracking-wider">WhatsApp</span>
+        </a>
+        <a href="#ubicacion" class="py-3 flex flex-col items-center justify-center text-white hover:text-barber-gold transition-colors duration-300 cursor-pointer">
+            <i class="fa-solid fa-location-dot text-barber-gold text-sm mb-0.5"></i>
+            <span class="text-[10px] font-heading font-bold uppercase tracking-wider">Ubicación</span>
+        </a>
+    </div>
+
+    <!-- ==================== MODAL DE RESERVA ==================== -->
+    <div id="reservar" class="sr-only"></div>
+    <div id="booking-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/85 backdrop-blur-sm">
+        <div class="bg-barber-card w-full max-w-md rounded-2xl p-6 sm:p-8 gold-border-glow relative">
+            <button type="button" onclick="closeBookingModal()" aria-label="Cerrar modal"
+                class="absolute top-4 right-4 w-9 h-9 rounded-full bg-barber-black border border-white/15 text-barber-muted hover:text-white hover:border-barber-gold/50 flex items-center justify-center transition-all duration-300 cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <span class="text-xs font-heading font-bold uppercase tracking-widest text-barber-gold">Reserva
+                Online</span>
+            <h3 class="font-heading font-black text-2xl text-white uppercase mt-1 mb-4">Agendar Cita</h3>
+
+            <form onsubmit="handleBookingSubmit(event)" class="space-y-4">
+                <div>
+                    <label
+                        class="block text-xs font-heading font-bold uppercase tracking-wider text-barber-gold mb-1.5">Tu
+                        Nombre *</label>
+                    <input type="text" id="modal-name" required placeholder="Ej. Carlos Mendoza"
+                        class="w-full px-4 py-3 rounded-xl bg-barber-black border border-white/15 focus:border-barber-gold focus:outline-none text-white text-sm">
+                </div>
+                <div>
+                    <label
+                        class="block text-xs font-heading font-bold uppercase tracking-wider text-barber-gold mb-1.5">Servicio
+                        *</label>
+                    <select id="modal-service" required
+                        class="w-full px-4 py-3 rounded-xl bg-barber-black border border-white/15 focus:border-barber-gold focus:outline-none text-white text-sm"></select>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label
+                            class="block text-xs font-heading font-bold uppercase tracking-wider text-barber-gold mb-1.5">Fecha
+                            *</label>
+                        <input type="date" id="modal-date" required
+                            class="w-full px-3 py-3 rounded-xl bg-barber-black border border-white/15 focus:border-barber-gold focus:outline-none text-white text-sm">
+                    </div>
+                    <div>
+                        <label
+                            class="block text-xs font-heading font-bold uppercase tracking-wider text-barber-gold mb-1.5">Hora
+                            *</label>
+                        <input type="time" id="modal-time" required value="16:00"
+                            class="w-full px-3 py-3 rounded-xl bg-barber-black border border-white/15 focus:border-barber-gold focus:outline-none text-white text-sm">
+                    </div>
+                </div>
+                <button type="submit"
+                    class="w-full py-4 rounded-xl bg-barber-gold hover:bg-barber-goldLight text-barber-black font-heading font-bold uppercase tracking-widest text-xs shadow-lg active:scale-95 transition-all duration-300 cursor-pointer mt-2 flex items-center justify-center gap-2">
+                    <span>Enviar Cita a WhatsApp (+51 936 403 769)</span>
+                    <span class="text-xs">↗</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== WIDGET FLOTANTE CHATBOT: KHALIL CENTRAL DE CITAS ==================== -->
+    <div id="chatbot-container" class="relative">
+        <!-- Botón Flotante Disparador -->
+        <button id="chatbot-trigger" type="button" onclick="toggleChatbot()" aria-label="Abrir Asistente Virtual Khalil"
+            class="fixed bottom-20 lg:bottom-6 right-4 sm:right-6 z-50 flex items-center gap-3 p-3.5 sm:px-4 sm:py-3 rounded-full bg-barber-card/95 border border-barber-gold/60 text-white shadow-2xl hover:border-barber-gold hover:shadow-barber-gold/30 hover:scale-105 transition-all duration-300 cursor-pointer backdrop-blur-md">
+            <span class="relative flex items-center justify-center w-8 h-8 rounded-full bg-barber-gold text-barber-black font-bold text-sm shadow-md">
+                <i class="fa-solid fa-comments"></i>
+                <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-green-500 border-2 border-barber-black animate-pulse"></span>
+            </span>
+            <div class="hidden sm:flex flex-col text-left">
+                <span class="font-heading font-black text-xs uppercase tracking-wider text-white">Central de Citas</span>
+                <span class="text-[10px] text-green-400 leading-none">En línea • responde al instante</span>
+            </div>
+        </button>
+
+        <!-- Ventana del Chatbot Asistente Virtual -->
+        <div id="chatbot-window"
+            class="fixed bottom-24 lg:bottom-20 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[380px] md:w-[410px] max-h-[580px] h-[550px] bg-barber-card/98 border border-barber-gold/40 rounded-2xl shadow-2xl backdrop-blur-md hidden flex-col overflow-hidden transition-all duration-300">
+            
+            <!-- Cabecera del Chatbot -->
+            <div class="p-4 bg-barber-black border-b border-white/10 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg border border-barber-gold/60 bg-black flex items-center justify-center p-1 overflow-hidden shrink-0 shadow-md">
+                        <img src="img/logo.png" alt="Logo Khalil Barber Shop" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <h4 class="font-heading font-black text-xs sm:text-sm text-white uppercase tracking-wider leading-none">
+                            Khalil • Central de Citas
+                        </h4>
+                        <span class="inline-flex items-center gap-1.5 text-[10px] text-green-400 font-medium mt-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                            en línea • responde al instante
+                        </span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <button type="button" onclick="resetChatbot()" title="Reiniciar chat" aria-label="Reiniciar chat"
+                        class="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 text-barber-muted hover:text-white flex items-center justify-center transition-colors cursor-pointer text-xs">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                    <button type="button" onclick="toggleChatbot()" title="Cerrar chat" aria-label="Cerrar chat"
+                        class="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 text-barber-muted hover:text-white flex items-center justify-center transition-colors cursor-pointer text-xs">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Área de Mensajes del Chat -->
+            <div id="chatbot-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs">
+                <!-- Se inyectan dinámicamente con JS -->
+            </div>
+
+            <!-- Contenedor de Botones de Respuesta Rápida (Pills) -->
+            <div id="chatbot-quick-options" class="px-4 pb-2 flex flex-wrap gap-1.5">
+                <!-- Se inyectan dinámicamente con JS -->
+            </div>
+
+            <!-- Formulario de Entrada de Texto -->
+            <form id="chatbot-form" onsubmit="handleChatbotInput(event)" class="p-3 bg-barber-black/95 border-t border-white/10 flex items-center gap-2">
+                <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje..." autocomplete="off"
+                    class="flex-1 px-3.5 py-2.5 rounded-xl bg-barber-card border border-white/15 focus:border-barber-gold focus:outline-none text-white text-xs placeholder:text-barber-muted">
+                <button type="submit" id="chatbot-send-btn" aria-label="Enviar mensaje"
+                    class="w-9 h-9 rounded-xl bg-barber-gold hover:bg-barber-goldLight text-barber-black flex items-center justify-center transition-all cursor-pointer shrink-0">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

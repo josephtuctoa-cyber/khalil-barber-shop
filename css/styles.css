@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Khalil Barber Shop - Premium Stylesheet (#090909 & #d4af37)
+   ========================================================================== */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    background-color: #090909;
+    color: #f3f3f3;
+    overflow-x: hidden;
+}
+
+/* Cursor pointer y transiciones para elementos interactivos */
+button,
+[type="button"],
+[type="submit"],
+[type="reset"],
+a {
+    cursor: pointer;
+}
+
+button,
+a,
+input,
+select {
+    transition: all 0.3s ease;
+}
+
+/* Borde dorado con resplandor sutil */
+.gold-border-glow {
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.9), 0 0 15px rgba(212, 175, 55, 0.05);
+    transition: all 0.3s ease;
+}
+
+.gold-border-glow:hover {
+    border-color: rgba(212, 175, 55, 0.65);
+    box-shadow: 0 14px 35px -8px rgba(0, 0, 0, 0.95), 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+/* Mosaico dorado para la Tarjeta VIP */
+.vip-mosaic {
+    background-color: #121212;
+    background-image:
+        linear-gradient(45deg, rgba(212, 175, 55, 0.18) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(212, 175, 55, 0.18) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(212, 175, 55, 0.18) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(212, 175, 55, 0.18) 75%);
+    background-size: 14px 14px;
+    background-position: 0 0, 0 7px, 7px -7px, -7px 0;
+}
+
+/* Barra de desplazamiento personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #252525;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+}
+
+/* Marquesina infinita sin desbordamientos ni cortes */
+.marquee-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.animate-marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: marquee-scroll 26s linear infinite;
+}
+
+.marquee-container:hover .animate-marquee-track {
+    animation-play-state: paused;
+}
+
+/* ==========================================================================
+   Widget Chatbot Asistente Virtual - Estilos Dark & Gold
+   ========================================================================== */
+#chatbot-messages::-webkit-scrollbar {
+    width: 5px;
+}
+
+#chatbot-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#chatbot-messages::-webkit-scrollbar-thumb {
+    background: #222222;
+    border-radius: 3px;
+}
+
+#chatbot-messages::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+}
+
+@keyframes chatBubbleIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-bubble-animate {
+    animation: chatBubbleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
